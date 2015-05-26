@@ -50,9 +50,13 @@ class PostForm extends Form
         $expires->setLabel('Expires')
             ->setAttribute('title', 'The expiration date will be calculated from today')
             ->setAttribute('class', 'expiresButton')
-            ->setValueOptions([
-            $this->getExpireDays()
-        ]);
+            ->setValueOptions(array(
+                0 => 'Never',
+                1 => 'Tomorrow',
+                7 => 'Week',
+                30 => 'Month'
+            )
+        );
         
         $city = new Text('cityCode');
         $city->setLabel('Nearest City')
